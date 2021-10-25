@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<!-- Very Important command -->
+rails db:drop db:create db:migrate db:seed

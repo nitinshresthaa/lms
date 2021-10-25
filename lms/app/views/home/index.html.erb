@@ -1,2 +1,13 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<% if user_signed_in? && current_user.librarian? %>
+<p>Welcome admin</p>\
+<% elsif user_signed_in? && current_user.user? %>
+    <p>Welcome Student</p>\
+<% else %>
+    <h1>   
+     Welcome , unsigned user%> </h1>
+<% end %>
+
+
+<% console %>
