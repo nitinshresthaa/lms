@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
         #  attr_accessible :email, :password, :password_confirmation, :remember_me, :role
         enum role: [:user, :librarian]
+        before_save { self.email = email.downcase }
+        has_many :books
+
       end

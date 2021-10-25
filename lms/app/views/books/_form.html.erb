@@ -1,0 +1,28 @@
+<% if @book.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h6 class="alert-heading">
+        Books couldnot be saved
+      </h6>
+    </div>
+    <% end %>
+    <div class="container">
+    <%= form_for(@book, :html => {role: "form"}) do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control", placeholder: "Title of book", autofocus: true %>
+      <% @book.errors.full_messages_for(:title).each do |msg|%>
+      <span class="text-danger"><%=msg%></span>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Body of book" %>
+      <% @book.errors.full_messages_for(:description).each do |msg|%>
+      <span class="text-danger"><%=msg%></span><br>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-primary btn-large' %>
+    </div>
+    <% end %>
+    </div>
